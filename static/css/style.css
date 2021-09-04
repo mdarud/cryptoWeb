@@ -1,8 +1,8 @@
 body {
   font-family: "Roboto", sans-serif;
-  background-color: #fff;
+  background-color: #e8e8e8;
   line-height: 1.9;
-  color: #8c8c8c;
+  color: #345b63;
   position: relative;
 }
 
@@ -200,9 +200,8 @@ label.error {
 }
 
 .submitting {
-  float: left;
+  float: right;
   width: 100%;
-  padding: 10px 0;
   display: none;
   font-weight: bold;
   font-size: 12px;
@@ -211,4 +210,8 @@ label.error {
 
 .nav-tabs {
   margin-bottom: 10px;
+}
+
+.nav-link:hover {
+  color: #30475e !important;
 }

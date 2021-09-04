@@ -28,7 +28,14 @@
         <div class="row align-items-stretch no-gutters contact-wrap">
           <div class="col-md-12">
             <div class="form h-100">
-              <h3>CryptoWeb</h3>
+              <div class="row">
+                <div class="col-md-2">
+                  <h3 style="margin-bottom: 0px;">CryptoWeb</h3>
+                </div>
+                <div class="col-md-10">
+                    <h6 style="padding-top: 20px; margin-bottom: 20px;">by Bambang & Daru</h6>
+                </div>
+              </div>
               <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
                   <a class="nav-link active" id="text-tab" href="#text">
@@ -99,10 +106,18 @@
                     </div>
 
                     <div class="row">
-                      <div class="col-md-12 form-group">
+                      <div class="col-md-2 form-group">
                         <input
                           type="submit"
                           value="Encrypt"
+                          class="btn btn-primary rounded-0 py-2 px-4"
+                        />
+                        <span class="submitting"></span>
+                      </div>
+                      <div class="col-md-10 form-group">
+                        <input
+                          type="submit"
+                          value="Decrypt"
                           class="btn btn-primary rounded-0 py-2 px-4"
                         />
                         <span class="submitting"></span>
@@ -177,19 +192,16 @@
                       </select>
                     </div>
                   </div>
-                  
-                  <div class="row">
-                    <div class="col-md-12 form-group">
-                      <input
-                        type="submit"
-                        value="Encrypt"
-                        class="btn btn-primary rounded-0 py-2 px-4"
-                      />
-                      <span class="submitting"></span>
-                    </div>
+
+                  <div class="btn-group">
+                    <button class="btn btn-primary">Encrypt</button>
+                    <button class="btn btn-primary">Decrypt</button>
                   </div>
                 </form>
               </div>
+
+              <h4>Output</h4>
+              <label>Insert input first.</label>
 
               <div id="form-message-warning mt-4"></div>
               <div id="form-message-success">
