@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="fonts/icomoon/style.css" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+    <!-- Style -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <title>CryptoWeb</title>
+  </head>
+  <body>
+    <div class="content">
+      <div class="container">
+        <div class="row align-items-stretch no-gutters contact-wrap">
+          <div class="col-md-12">
+            <div class="form h-100">
+              <div class="row">
+                <div class="col-md-2">
+                  <h3 style="margin-bottom: 0px;">CryptoWeb</h3>
+                </div>
+                <div class="col-md-10">
+                    <h6 style="padding-top: 20px; margin-bottom: 20px;">by Bambang & Daru</h6>
+                </div>
+              </div>
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link active" id="text-tab" href="#text">
+                    Text
+                  </a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link" id="file-tab" href="#file"> File </a>
+                </li>
+              </ul>
+              <div class="tab-content" id="myTabContent">
+                <div
+                  class="tab-pane fade show active"
+                  id="text"
+                  role="tabpanel"
+                  aria-labelledby="text-tab"
+                >
+                  <form
+                    class="mb-5"
+                    method="post"
+                    id="contactForm"
+                    name="contactForm"
+                  >
+                    <div class="row text-input">
+                      <div class="col-md-6 form-group mb-3">
+                        <label for="" class="col-form-label">Text</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="text"
+                          id="text"
+                          placeholder="Insert text" required
+                        />
+                      </div>
+                      <div class="col-md-6 form-group mb-3">
+                        <label for="" class="col-form-label">Key</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="key"
+                          id="key"
+                          placeholder="Insert key" required
+                        />
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-12 form-group mb-3">
+                        <label for="method" class="col-form-label"
+                          >Encrypting Method</label
+                        >
+                        <select class="custom-select method-select-text" id="method" name="method">
+                          <option value="vigenere" selected>Vigenere Cipher</option>
+                          <option value="fullvigenere">
+                            Full Vigenere Cipher
+                          </option>
+                          <option value="autokeyvigenere">
+                            Auto-key Vigenere Cipher
+                          </option>
+                          <option value="exvigenere">
+                            Extended Vigenere Cipher
+                          </option>
+                          <option value="playfair">Playfair Cipher</option>
+                          <option value="affine">Affine Cipher</option>
+                          <option value="enigma">Enigma cipher</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-2 form-group">
+                        <input
+                          type="submit"
+                          id="encrypt"
+                          class="btn btn-primary rounded-0 py-2 px-4"
+                          value="Encrypt"
+                        />
+                      </div>
+                      <div class="col-md-10 form-group">
+                        <input
+                          type="submit"
+                          id="decrypt"
+                          class="btn btn-primary rounded-0 py-2 px-4"
+                          value="Decrypt"
+                        />
+                      </div>
+                    </div>
+                  </form>
+                </div>
+
+                <div
+                  class="tab-pane fade"
+                  id="file"
+                  role="tabpanel"
+                  aria-labelledby="file-tab"
+                >
+                <form
+                    class="mb-5"
+                    method="post"
+                    id="contactForm"
+                    name="contactForm"
+                    enctype="multipart/form-data"
+                  >
+                    <div class="row">
+                      <div class="col-md-2 form-group mb-3">
+                        <label for="" class="col-form-label">File Type</label>
+                        <select class="custom-select file-select" id="filetype" name="filetype">
+                          <option value="text" selected>Text</option>
+                          <option value="binary">
+                            Binary
+                          </option>
+                        </select>
+                      </div>
+                      <div class="col-md-10 form-group mb-3">
+                        <label for="" class="col-form-label">File</label>
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input" id="customFile" name="file" accept="text/plain">
+                          <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
+                      </div>
+                    </div>
+
+                  <div class="row file-input">
+                    <div class="col-md-12 form-group mb-3">
+                      <label for="" class="col-form-label">Key</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="key"
+                          id="key"
+                          placeholder="Insert key"
+                        />
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12 form-group mb-3">
+                      <label for="method" class="col-form-label"
+                        >Encrypting Method</label
+                      >
+                      <select class="custom-select method-select-file" id="method" name="method">
+                        <option value="vigenere" selected>Vigenere Cipher</option>
+                        <option value="fullvigenere">
+                          Full Vigenere Cipher
+                        </option>
+                        <option value="autokeyvigenere">
+                          Auto-key Vigenere Cipher
+                        </option>
+                        <option value="exvigenere">
+                          Extended Vigenere Cipher
+                        </option>
+                        <option value="playfair">Playfair Cipher</option>
+                        <option value="affine">Affine Cipher</option>
+                        <option value="enigma">Enigma cipher</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-2 form-group">
+                      <input
+                        type="submit"
+                        id="encryptFile"
+                        class="btn btn-primary rounded-0 py-2 px-4"
+                        value="Encrypt"
+                      />
+                    </div>
+                    <div class="col-md-10 form-group">
+                      <input
+                        type="submit"
+                        id="decryptFile"
+                        class="btn btn-primary rounded-0 py-2 px-4"
+                        value="Decrypt"
+                      />
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <h4>Output</h4>
+              <div style="overflow: auto;">
+                {% if output is defined %}
+                  {{ output }}
+                {% else %}
+                  Insert input first.
+                {% endif %}
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
