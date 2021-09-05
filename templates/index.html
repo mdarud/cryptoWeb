@@ -113,7 +113,6 @@
                           class="btn btn-primary rounded-0 py-2 px-4"
                           value="Encrypt"
                         />
-                        <span class="encrypting"></span>
                       </div>
                       <div class="col-md-10 form-group">
                         <input
@@ -122,7 +121,6 @@
                           class="btn btn-primary rounded-0 py-2 px-4"
                           value="Decrypt"
                         />
-                        <span class="submitting"></span>
                       </div>
                     </div>
                   </form>
@@ -139,11 +137,12 @@
                     method="post"
                     id="contactForm"
                     name="contactForm"
+                    enctype="multipart/form-data"
                   >
                     <div class="row">
                       <div class="col-md-2 form-group mb-3">
                         <label for="" class="col-form-label">File Type</label>
-                        <select class="custom-select" id="budget" name="budget">
+                        <select class="custom-select file-select" id="filetype" name="filetype">
                           <option value="text" selected>Text</option>
                           <option value="binary">
                             Binary
@@ -153,13 +152,13 @@
                       <div class="col-md-10 form-group mb-3">
                         <label for="" class="col-form-label">File</label>
                         <div class="custom-file">
-                          <input type="file" class="custom-file-input" id="customFile">
+                          <input type="file" class="custom-file-input" id="customFile" name="file" accept="text/plain">
                           <label class="custom-file-label" for="customFile">Choose file</label>
                         </div>
                       </div>
                     </div>
 
-                  <div class="row">
+                  <div class="row file-input">
                     <div class="col-md-12 form-group mb-3">
                       <label for="" class="col-form-label">Key</label>
                         <input
@@ -174,10 +173,10 @@
 
                   <div class="row">
                     <div class="col-md-12 form-group mb-3">
-                      <label for="budget" class="col-form-label"
+                      <label for="method" class="col-form-label"
                         >Encrypting Method</label
                       >
-                      <select class="custom-select" id="budget" name="budget">
+                      <select class="custom-select method-select-file" id="method" name="method">
                         <option value="vigenere" selected>Vigenere Cipher</option>
                         <option value="fullvigenere">
                           Full Vigenere Cipher
@@ -195,22 +194,35 @@
                     </div>
                   </div>
 
-                  <div class="btn-group">
-                    <button class="btn btn-primary">Encrypt</button>
-                    <button class="btn btn-primary">Decrypt</button>
+                  <div class="row">
+                    <div class="col-md-2 form-group">
+                      <input
+                        type="submit"
+                        id="encryptFile"
+                        class="btn btn-primary rounded-0 py-2 px-4"
+                        value="Encrypt"
+                      />
+                    </div>
+                    <div class="col-md-10 form-group">
+                      <input
+                        type="submit"
+                        id="decryptFile"
+                        class="btn btn-primary rounded-0 py-2 px-4"
+                        value="Decrypt"
+                      />
+                    </div>
                   </div>
                 </form>
               </div>
-
-              <h4>Output</h4>
-              <label>
+            </div>
+            <h4>Output</h4>
+              <div style="overflow: auto;">
                 {% if output is defined %}
                   {{ output }}
                 {% else %}
                   Insert input first.
                 {% endif %}
-              </label>
-            </div>
+              </div>
           </div>
         </div>
       </div>
