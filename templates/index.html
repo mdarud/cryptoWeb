@@ -59,7 +59,7 @@
                     id="contactForm"
                     name="contactForm"
                   >
-                    <div class="row">
+                    <div class="row text-input">
                       <div class="col-md-6 form-group mb-3">
                         <label for="" class="col-form-label">Text</label>
                         <input
@@ -67,7 +67,7 @@
                           class="form-control"
                           name="text"
                           id="text"
-                          placeholder="Insert text"
+                          placeholder="Insert text" required
                         />
                       </div>
                       <div class="col-md-6 form-group mb-3">
@@ -77,17 +77,17 @@
                           class="form-control"
                           name="key"
                           id="key"
-                          placeholder="Insert key"
+                          placeholder="Insert key" required
                         />
                       </div>
                     </div>
 
                     <div class="row">
                       <div class="col-md-12 form-group mb-3">
-                        <label for="budget" class="col-form-label"
+                        <label for="method" class="col-form-label"
                           >Encrypting Method</label
                         >
-                        <select class="custom-select" id="budget" name="budget">
+                        <select class="custom-select method-select-text" id="method" name="method">
                           <option value="vigenere" selected>Vigenere Cipher</option>
                           <option value="fullvigenere">
                             Full Vigenere Cipher
@@ -109,16 +109,18 @@
                       <div class="col-md-2 form-group">
                         <input
                           type="submit"
-                          value="Encrypt"
+                          id="encrypt"
                           class="btn btn-primary rounded-0 py-2 px-4"
+                          value="Encrypt"
                         />
-                        <span class="submitting"></span>
+                        <span class="encrypting"></span>
                       </div>
                       <div class="col-md-10 form-group">
                         <input
                           type="submit"
-                          value="Decrypt"
+                          id="decrypt"
                           class="btn btn-primary rounded-0 py-2 px-4"
+                          value="Decrypt"
                         />
                         <span class="submitting"></span>
                       </div>
@@ -201,12 +203,13 @@
               </div>
 
               <h4>Output</h4>
-              <label>Insert input first.</label>
-
-              <div id="form-message-warning mt-4"></div>
-              <div id="form-message-success">
-                Your message was sent, thank you!
-              </div>
+              <label>
+                {% if output is defined %}
+                  {{ output }}
+                {% else %}
+                  Insert input first.
+                {% endif %}
+              </label>
             </div>
           </div>
         </div>
