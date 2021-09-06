@@ -273,7 +273,11 @@ def encryptEnigma():
     rot = [int(req["rotor1"])-1, int(req["rotor2"])-1, int(req["rotor3"])-1]
     pos = [int(req["pos1"])-1, int(req["pos2"])-1, int(req["pos3"])-1]
     ring = [int(req["ring1"])-1, int(req["ring2"])-1, int(req["ring3"])-1]
-    plug = req["plug"]
+    plug = req["plug"].upper()
+    p = ""
+    for i in range(0, len(plug), 2):
+        p += plug[i] + plug[i + 1] + " "
+    plug = p
     e = Enigma()
     e.set_used_reflector(ref)
     e.set_used_rotor(rot)
