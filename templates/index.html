@@ -45,6 +45,9 @@
                 <li class="nav-item" role="presentation">
                   <a class="nav-link" id="file-tab" href="#file"> File </a>
                 </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link" id="enigma-tab" href="#enigma"> Enigma </a>
+                </li>
               </ul>
               <div class="tab-content" id="myTabContent">
                 <div
@@ -100,7 +103,20 @@
                           </option>
                           <option value="playfair">Playfair Cipher</option>
                           <option value="affine">Affine Cipher</option>
-                          <option value="enigma">Enigma cipher</option>
+                        </select>
+                      </div>
+                    </div>
+                    
+                    <div class="row">
+                      <div class="col-md-12 form-group mb-3">
+                        <label for="outStyle" class="col-form-label"
+                          >Output Style</label
+                        >
+                        <select class="custom-select" id="outStyle" name="outStyle">
+                          <option value="nospace" selected>No Space</option>
+                          <option value="five">
+                            5-Letter Groups
+                          </option>
                         </select>
                       </div>
                     </div>
@@ -142,7 +158,7 @@
                     <div class="row">
                       <div class="col-md-2 form-group mb-3">
                         <label for="" class="col-form-label">File Type</label>
-                        <select class="custom-select file-select" id="filetype" name="filetype">
+                        <select class="custom-select file-select" id="filetype" name="filetype" required>
                           <option value="text" selected>Text</option>
                           <option value="binary">
                             Binary
@@ -152,7 +168,7 @@
                       <div class="col-md-10 form-group mb-3">
                         <label for="" class="col-form-label">File</label>
                         <div class="custom-file">
-                          <input type="file" class="custom-file-input" id="customFile" name="file" accept="text/plain">
+                          <input type="file" class="custom-file-input" id="customFile" name="file" accept="text/plain" required>
                           <label class="custom-file-label" for="customFile">Choose file</label>
                         </div>
                       </div>
@@ -166,7 +182,7 @@
                           class="form-control"
                           name="key"
                           id="key"
-                          placeholder="Insert key"
+                          placeholder="Insert key" required
                         />
                     </div>
                   </div>
@@ -189,7 +205,21 @@
                         </option>
                         <option value="playfair">Playfair Cipher</option>
                         <option value="affine">Affine Cipher</option>
-                        <option value="enigma">Enigma cipher</option>
+                      </select>
+                      <input type="hidden" name="method" value="exvigenere">
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12 form-group mb-3">
+                      <label for="outStyle" class="col-form-label"
+                        >Output Style</label
+                      >
+                      <select class="custom-select" id="outStyle" name="outStyle">
+                        <option value="nospace" selected>No Space</option>
+                        <option value="five">
+                          5-Letter Groups
+                        </option>
                       </select>
                     </div>
                   </div>
@@ -214,7 +244,244 @@
                   </div>
                 </form>
               </div>
+              <div
+                  class="tab-pane fade"
+                  id="enigma"
+                  role="tabpanel"
+                  aria-labelledby="enigma-tab"
+                >
+                <form
+                    class="mb-5"
+                    method="post"
+                    id="contactForm"
+                    name="contactForm"
+                  >
+                    <div class="row">
+                      <div class="col-md-12 form-group mb-3">
+                        <label for="" class="col-form-label">Text</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            name="text"
+                            id="text"
+                            placeholder="Insert text" required
+                          />
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-12 form-group mb-3">
+                        <label for="reflector" class="col-form-label"
+                          >Reflector</label
+                        >
+                        <select class="custom-select" id="reflector" name="reflector">
+                          <option value="0" selected>UKW B</option>
+                          <option value="1">
+                            UKW C
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-4 form-group mb-3">
+                        <label for="rotor1" class="col-form-label"
+                          >Rotor 1</label
+                        >
+                        <select class="custom-select" id="rotor1" name="rotor1">
+                          <option value="0" selected>I</option>
+                          <option value="1">II</option>
+                          <option value="2">III</option>
+                          <option value="3">IV</option>
+                          <option value="4">V</option>
+                          <option value="5">VI</option>
+                          <option value="6">VII</option>
+                          <option value="7">VIII</option>
+                        </select>
+                      </div>
+
+                      <div class="col-md-4 form-group mb-3">
+                        <label for="method" class="col-form-label"
+                          >Position</label
+                        >
+                        <input
+                          type="number"
+                          class="form-control"
+                          name="pos1"
+                          id="pos1"
+                          value="1"
+                          min="1"
+                          max="26" required
+                        />
+                      </div>
+
+                      <div class="col-md-4 form-group mb-3">
+                        <label for="method" class="col-form-label"
+                          >Ring</label
+                        >
+                        <input
+                          type="number"
+                          class="form-control"
+                          name="ring1"
+                          id="ring1"
+                          value="1" 
+                          min="1"
+                          max="26" required
+                        />
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-4 form-group mb-3">
+                        <label for="rotor" class="col-form-label"
+                          >Rotor 2</label
+                        >
+                        <select class="custom-select" id="rotor2" name="rotor2">
+                          <option value="0" selected>I</option>
+                          <option value="1">II</option>
+                          <option value="2">III</option>
+                          <option value="3">IV</option>
+                          <option value="4">V</option>
+                          <option value="5">VI</option>
+                          <option value="6">VII</option>
+                          <option value="7">VIII</option>
+                        </select>
+                      </div>
+
+                      <div class="col-md-4 form-group mb-3">
+                        <label for="method" class="col-form-label"
+                          >Position</label
+                        >
+                        <input
+                          type="number"
+                          class="form-control"
+                          name="pos2"
+                          id="pos2"
+                          value="2" 
+                          min="1"
+                          max="26" required
+                        />
+                      </div>
+
+                      <div class="col-md-4 form-group mb-3">
+                        <label for="method" class="col-form-label"
+                          >Ring</label
+                        >
+                        <input
+                          type="number"
+                          class="form-control"
+                          name="ring2"
+                          id="ring2"
+                          value="2" 
+                          min="1"
+                          max="26" required
+                        />
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-4 form-group mb-3">
+                        <label for="rotor" class="col-form-label"
+                          >Rotor 3</label
+                        >
+                        <select class="custom-select" id="rotor3" name="rotor3">
+                          <option value="0" selected>I</option>
+                          <option value="1">II</option>
+                          <option value="2">III</option>
+                          <option value="3">IV</option>
+                          <option value="4">V</option>
+                          <option value="5">VI</option>
+                          <option value="6">VII</option>
+                          <option value="7">VIII</option>
+                        </select>
+                      </div>
+
+                      <div class="col-md-4 form-group mb-3">
+                        <label for="method" class="col-form-label"
+                          >Position</label
+                        >
+                        <input
+                          type="number"
+                          class="form-control"
+                          name="pos3"
+                          id="pos3"
+                          value="3" 
+                          min="1"
+                          max="26" required
+                        />
+                      </div>
+
+                      <div class="col-md-4 form-group mb-3">
+                        <label for="method" class="col-form-label"
+                          >Ring</label
+                        >
+                        <input
+                          type="number"
+                          class="form-control"
+                          name="ring3"
+                          id="ring3"
+                          value="3" 
+                          min="1"
+                          max="26" required
+                        />
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-12 form-group mb-3">
+                        <label for="" class="col-form-label">Plugboard</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            name="plug"
+                            id="plug"
+                            placeholder="XX XX XX XX XX" required
+                          />
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-12 form-group mb-3">
+                        <label for="outStyle" class="col-form-label"
+                          >Output Style</label
+                        >
+                        <select class="custom-select" id="outStyle" name="outStyle">
+                          <option value="nospace" selected>No Space</option>
+                          <option value="five">
+                            5-Letter Groups
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <input
+                        type="submit"
+                        id="encryptEnigma"
+                        class="btn btn-primary rounded-0 py-2 px-4"
+                        value="Encrypt"
+                      />
+                    </div>
+
+                  </form>
+              </div>
             </div>
+            <h4>Input</h4>
+              <div style="overflow: auto; margin-bottom: 10px;">
+                {% if input is defined %}
+                  {{ input }}
+                {% else %}
+                  Insert input first.
+                {% endif %}
+              </div>
+            <h4>Method</h4>
+              <div style="overflow: auto; margin-bottom: 10px;">
+                {% if method is defined %}
+                  {{ method}}
+                {% else %}
+                  Insert input first.
+                {% endif %}
+              </div>
             <h4>Output</h4>
               <div style="overflow: auto;">
                 {% if output is defined %}
@@ -223,6 +490,14 @@
                   Insert input first.
                 {% endif %}
               </div>
+              {% if output is defined %}
+              <form><div class="row"><input
+                type="submit"
+                id="downloadOutput"
+                class="btn btn-primary rounded-0 py-2 px-4"
+                value="Download"
+              /></div></form>
+              {% endif %}
           </div>
         </div>
       </div>

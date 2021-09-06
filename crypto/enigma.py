@@ -4,7 +4,7 @@ rotor_wiring = ["EKMFLGDQVZNTOWYHXUSPAIBRCJ", "AJDKSIRUXBLHWTMCQGZNPYFVOE",
                 "NZJHGRCXMYSWBOUFAIVLPEKQDT", "FKQHTLXOCBJSPDZRAMEWNIUYGV"]
 turnover_point = ["Q", "E", "V", "J", "Z", ["Z", "M"], ["Z", "M"], ["Z", "M"]]
 
-reflector_wiring = ["YRUHQSLDPXNGOKMIEBFZCWVJAT"]
+reflector_wiring = ["YRUHQSLDPXNGOKMIEBFZCWVJAT", "FVPJIAOYEDRZXWGCTKUQSBNMHL"]
 
 
 def generateRotor(i):
@@ -72,7 +72,7 @@ class Enigma:
 
     def set_used_reflector(self, used_reflector):
         self.used_reflector = used_reflector
-        self.rotor = generateReflector(used_reflector)
+        self.reflector = generateReflector(used_reflector)
 
     def reset_setting(self):
         self.offset = [0 for _ in range(self.n_rotor)]  # rotor offset
