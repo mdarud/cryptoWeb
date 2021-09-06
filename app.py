@@ -228,7 +228,8 @@ def decryptFileMethod():
         plaintext = decrypt(text, key, method)
         file.close()
         method = methodName(method)
-        attc = f.filename.split(".")[0] + "-Decrypted.txt"
+        temp = f.filename.split("Encrypted")
+        attc = temp[0] + "Decrypted" + temp[1]
         fi = open(attc, "w")
         fi.write(plaintext)
         fi.close()
