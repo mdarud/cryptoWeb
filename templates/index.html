@@ -45,6 +45,9 @@
                 <li class="nav-item" role="presentation">
                   <a class="nav-link" id="file-tab" href="#file"> File </a>
                 </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link" id="enigma-tab" href="#enigma"> Enigma </a>
+                </li>
               </ul>
               <div class="tab-content" id="myTabContent">
                 <div
@@ -142,7 +145,7 @@
                     <div class="row">
                       <div class="col-md-2 form-group mb-3">
                         <label for="" class="col-form-label">File Type</label>
-                        <select class="custom-select file-select" id="filetype" name="filetype">
+                        <select class="custom-select file-select" id="filetype" name="filetype" required>
                           <option value="text" selected>Text</option>
                           <option value="binary">
                             Binary
@@ -152,7 +155,7 @@
                       <div class="col-md-10 form-group mb-3">
                         <label for="" class="col-form-label">File</label>
                         <div class="custom-file">
-                          <input type="file" class="custom-file-input" id="customFile" name="file" accept="text/plain">
+                          <input type="file" class="custom-file-input" id="customFile" name="file" accept="text/plain" required>
                           <label class="custom-file-label" for="customFile">Choose file</label>
                         </div>
                       </div>
@@ -166,7 +169,7 @@
                           class="form-control"
                           name="key"
                           id="key"
-                          placeholder="Insert key"
+                          placeholder="Insert key" required
                         />
                     </div>
                   </div>
@@ -191,6 +194,7 @@
                         <option value="affine">Affine Cipher</option>
                         <option value="enigma">Enigma cipher</option>
                       </select>
+                      <input type="hidden" name="method" value="exvigenere">
                     </div>
                   </div>
 
@@ -214,7 +218,64 @@
                   </div>
                 </form>
               </div>
+              <div
+                  class="tab-pane fade"
+                  id="enigma"
+                  role="tabpanel"
+                  aria-labelledby="enigma-tab"
+                >
+                <form
+                    class="mb-5"
+                    method="post"
+                    id="contactForm"
+                    name="contactForm"
+                  >
+                    <div class="row">
+                      <div class="col-md-12 form-group mb-3">
+                        <label for="" class="col-form-label">Text</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            name="text"
+                            id="text"
+                            placeholder="Insert text" required
+                          />
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-12 form-group mb-3">
+                        <label for="method" class="col-form-label"
+                          >Reflector</label
+                        >
+                        <select class="custom-select method-select-text" id="reflector" name="reflector">
+                          <option value="0" selected>UKW B</option>
+                          <option value="1">
+                            UKW C
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                    
+                  </form>
+              </div>
             </div>
+            <h4>Input</h4>
+              <div style="overflow: auto; margin-bottom: 10px;">
+                {% if input is defined %}
+                  {{ input }}
+                {% else %}
+                  Insert input first.
+                {% endif %}
+              </div>
+            <h4>Method</h4>
+              <div style="overflow: auto; margin-bottom: 10px;">
+                {% if method is defined %}
+                  {{ method}}
+                {% else %}
+                  Insert input first.
+                {% endif %}
+              </div>
             <h4>Output</h4>
               <div style="overflow: auto;">
                 {% if output is defined %}
@@ -223,6 +284,14 @@
                   Insert input first.
                 {% endif %}
               </div>
+              {% if output is defined %}
+              <form><div class="row"><input
+                type="submit"
+                id="downloadOutput"
+                class="btn btn-primary rounded-0 py-2 px-4"
+                value="Download"
+              /></div></form>
+              {% endif %}
           </div>
         </div>
       </div>
