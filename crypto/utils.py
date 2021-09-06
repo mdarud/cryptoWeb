@@ -1,5 +1,5 @@
-import magic
-import mimetypes
+# import magic
+# import mimetypes
 
 signatures = [{'ascii': '....',
                'description': 'RedHat Package Manager (RPM) package',
@@ -1030,9 +1030,7 @@ def alphabetOnly(text):
     return ''.join(filter(str.isalpha, text))
 
 
-def guessExt(filename):
-    type = magic.from_file(filename, mime=True)
-    ext = mimetypes.guess_extension(type)
-    return ext
-
-
+# def guessExt(filename):
+#     type = magic.from_file(filename, mime=True)
+#     ext = mimetypes.guess_extension(type)
+#     return ext

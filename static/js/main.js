@@ -23,6 +23,10 @@ $("#decryptFile").click(function() {
   $(this).closest("form").attr("action", "/decrypt-file");       
 });
 
+$("#encryptEnigma").click(function() {
+  $(this).closest("form").attr("action", "/encrypt-enigma");     
+});
+
 $("#downloadOutput").click(function() {
   $(this).closest("form").attr("action", "/download");       
 });
